@@ -132,10 +132,11 @@ export default function Home() {
   const openVideoModal = (id: string, source: string) => {
     // URL para o modal com controles habilitados e sem logo do YouTube
     const url =
-      source === "youtube"
-        ? `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&showinfo=0&iv_load_policy=3&color=white&controls=1`
-        : `https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0`
+    source === "youtube"
+      ? `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&showinfo=0&iv_load_policy=3&color=white&controls=1&vq=hd1080`
+      : `https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0`
 
+      
     setVideoModal({ show: true, url, source })
     document.body.style.overflow = "hidden"
   }
@@ -231,7 +232,7 @@ ${formData.mensagem}
 
   // Construir URL do YouTube com parâmetros para remover completamente a interface
   const getYouTubeEmbedUrl = (videoId: string) => {
-    return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&fs=0&color=white&disablekb=1&playsinline=1&loop=1&playlist=${videoId}&enablejsapi=1&origin=${typeof window !== "undefined" ? window.location.origin : ""}`
+    return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&fs=0&color=white&disablekb=1&playsinline=1&loop=1&playlist=${videoId}&enablejsapi=1&origin=${typeof window !== "undefined" ? window.location.origin : ""}&vq=hd1080`
   }
 
   // Função para lidar com a conclusão do preloader
